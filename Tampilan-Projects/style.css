@@ -1,0 +1,294 @@
+:root {
+    --primary: #ffd700;
+    --bg: #010101;
+    --garis: #ff4500;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: var(--bg);
+    color: white;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 7%;
+    background-color: rgba(1, 1, 1, 0.8);
+    border-bottom: 1px solid #ccad00;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    font-style: italic;
+}
+
+.navbar .navbar-logo span {
+    color: var(--primary);
+}
+
+.navbar .navbar-nav {
+    padding-top: 0.5rem;
+}
+
+.navbar .navbar-nav a {
+    color: white;
+    display: inline-block;
+    font-size: 1.3rem;
+    margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+    color: var(--primary);
+}
+
+.navbar .navbar-nav a::after {
+    content: "";
+    display: block;
+    padding-bottom: 0.3rem;
+    border-bottom: 0.1rem solid var(--primary);
+    transform: scaleX(0);
+    transition: 0.2s linear;
+}
+
+.navbar .navbar-nav .navbar-icon a:hover {
+    color: white;
+    width: 2rem;
+    height: 1.5rem;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+.navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.5);
+}
+
+.navbar .navbar-extra a {
+    color: white;
+    margin: 0 1rem;
+}
+
+.navbar .navbar-extra .navbar-search {
+    width: 2.2rem;
+    height: 2.2rem;
+}
+
+.navbar .navbar-extra .navbar-search:hover {
+    color: var(--primary);
+}
+
+
+#hamburger-menu {
+    display: none;
+}
+
+/* AKHIR NAVBAR SECTIONS */
+
+/* MAIN SECTIONS */
+.judul {
+    padding-top: 90px;
+    text-align: center;
+    font-size: 20px;
+    text-decoration: underline var(--garis);
+}
+
+.judul h2 {
+    text-align: center;
+    font-size: 2.6rem;
+}
+
+.judul span {
+    color: var(--primary);
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 5px;
+    padding: 40px;
+    margin: auto 20px 7px 20px;
+}
+
+.box img {
+    width: 100%;
+    border-radius: 30px;
+    padding: 10px;
+    display: flex;
+    transform: scale(1);
+    transition: all .3s ease-out;
+}
+
+.box:hover img {
+    transform: scale(1.1);
+    transition: all .5s ease-in;
+}
+
+.box {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.wrapper .box .img-title {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(5, 5, 5, 0), rgba(5, 5, 5, 1));
+    top: 3456px;
+    transition: all .5s ease-in;
+}
+
+.box .img-title h3,
+.box .img-title .text p {
+    text-align: center;
+    color: #fff;
+    line-height: 2px;
+    position: relative;
+    top: 200px;
+    text-shadow: 1px 1px rgba(5, 5, 5, 0.5);
+}
+
+.box:hover .img-title {
+    top: 0;
+    transition: all .5ss ease-out;
+}
+
+/* AKHIR MAIN SECTIONS */
+
+/* FGOTER SECTIONS */
+footer {
+    background-color: var(--primary);
+    text-align: center;
+    padding: 1rem 0.3rem;
+    margin-top: 3rem;
+}
+
+footer .social {
+    padding: 1rem 0;
+}
+
+footer .social a {
+    color: black;
+    margin: 1rem;
+}
+
+footer .social a:hover,
+footer .link a:hover {
+    color: var(--bg);
+}
+
+footer .social .clock {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 0.3rem;
+}
+
+footer .link {
+    display: inline-block;
+    margin-bottom: 1.4rem;
+}
+
+footer .link a {
+    color: black;
+    padding: 1.7rem 1rem;
+}
+
+footer .credit p {
+    font-size: 0.8rem;
+    color: #010101;
+}
+
+footer .credit a {
+    color: var(--bg);
+    font-weight: 700;
+}
+
+/* AKHIR FOOTER SECTIONS */
+
+
+/* MEDIA QUERIES */
+/* LAPTOP */
+@media (max-width: 1366px) {
+    html {
+        font-size: 75%;
+    }
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+    html {
+        font-size: 62.5%;
+    }
+
+    #hamburger-menu {
+        display: inline-block;
+    }
+
+    .navbar .navbar-nav {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: white;
+        width: 30rem;
+        height: 100vh;
+        transition: 0.7s;
+    }
+
+    .navbar .navbar-nav.active {
+        right: 0;
+    }
+
+    .navbar .navbar-nav a {
+        color: var(--bg);
+        display: block;
+        margin: 1.5rem;
+        padding: 0.5px;
+        font-size: 2rem;
+    }
+
+    .navbar .navbar-nav a::after {
+        transform-origin: 0 0;
+    }
+
+    .navbar .navbar-nav a:hover::after {
+        transform: scaleX(0.2);
+    }
+}
+
+/* HANDPHONE */
+@media (max-width: 450px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+/* AKHIR MEDIA QUERIES */
